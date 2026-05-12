@@ -1,0 +1,183 @@
+ImageScript 1.1 (c) 2010-2014 by CRESD GmbH
+===========================================
+
+This documentation is in german, only. If you need an english translation,
+please, ask the author at http://www.cresd.com/
+
+Einleitung
+----------
+
+Dieses Programm ist ein PHP-Skript zur Anzeige einer Galerie aus 
+Bilddateien Ihres Webservers. Um es benutzen zu können, benötigen Sie 
+daher eine PHP-Umgebung auf Ihrem Webserver. Es wurde nur auf einem
+Apache Server unter einem Unixsystem getestet. Dabei kam sowohl eine
+PHP 4 als auch eine PHP 5 Installation zum Einsatz. Ein Windowsserver
+wurde nicht getestet.
+
+Das Script verwendet CSS 2.0 Angaben und benötigt daher mindestens einen
+Browser, der diese Angaben auswerten kann. Wir haben es mit IE7, Seamonkey
+1.1 und Konqueror getestet. Wenn es einen äteren Internet Explorer findet,
+werden die JavaScript-Funktion zur Anzeige der Bilder nicht verwendet.
+
+Lizenzvereinbarung
+------------------
+
+Die Benutzung dieses Skriptes ist kostenlos. Es geschieht jedoch in 
+eigener Verantwortung. Das heißt die CRESD GmbH kann nicht für Schäden,
+die weder mittelbar noch unmittelbar durch die Benutzung des Skriptes 
+verursacht wurden, verantwortlich gemacht werden.
+
+Installation
+------------
+
+Kopieren Sie einfach die Dateien images.php, images.js, images.css, 
+imagempty.gif und imagethumb.php in das Hauptverzeichnis Ihrer Galerie. 
+Anschließend erzeugen Sie einen Link auf Ihre Galerie wo immer Sie wollen.
+
+Beispiel:
+<a href="Galerie/images.php">Galerie</a>
+
+Alternativ können Sie aber auch einen Link auf die Datei "imagetree.html"
+erzeugen. Dies bewirkt, daß ein Baum Ihrer Galerie zusätzlich angezeigt
+wird.
+
+Wenn Sie mögen, können Sie auch Symbole für den Navigator in das Verzeichnis 
+kopieren. Sie müssen aber in diesen Fall daran denken, diese auch zu 
+aktivieren indem Sie die erforderloichen Einstellungen in imagehead.php 
+vornehmen (siehe unten).
+
+Nun können Sie beliebig viele Verzeichnisse und JPEG-Dateien in Ihre 
+Galerie kopieren.
+
+Verändern Sie auf keinen Fall die mitgelieferten Dateien. Bei einem Update
+riskieren Sie sonst die Funktionalität und/oder Einstellungen Ihrer 
+Galerie.
+
+Funktionsweise
+--------------
+
+Um die Galerie Ihren eigenen Wünschen anpassen zu können, müssen Sie die
+Funktion des Skripts verstehen. Daher werden wir hier wichtigsten Schritte
+beschreiben:
+
+- Zuerst wird die CSS-Datei images.css geladen.
+- Danach werden einige globale Variablen initialisiert.
+- Dann wird, falls vorhanden das PHP-Script imagehead.php im 
+  Hauptverzeichnis Ihrer Galerie geladen. Hier können Sie die Vorbelegung
+  der globalen Variablen aber auch Styles für die ganze Galerie und die
+  Untergalerien anpassen. In der mitgelieferten Beispieldatei finden Sie
+  alle Variablen und ihre Beschreibung.
+  Beispiel:
+<?php
+	$title="Gro&szlig;venediger";
+?>
+<style>
+	body
+	{
+		background-color: #FFFF88;
+	}
+	.imagePreview
+	{
+		background-color: #FFFFCC;
+	}
+</style>
+- Dann wird, falls vorhanden das PHP-Script imagehead.php im 
+  Verzeichnis Ihrer aktuellen Galerie geladen. Hier können Sie die 
+  Vorbelegung der globalen Variablen aber auch Styles für die Untergalerie
+  anpassen.
+- Nun wird die Javasciptdatei eingebunden.
+- Jetzt wird die Überschriftszeile ausgegeben.
+- Fall jetzt nicht gerade das Hauptverzeichnis angezeigt wird, kommt nun
+  ein Link für eine Ebene nach oben. Falls jedoch ein nicht erlaubter Wert
+  im Parameter DIR angegeben wurde, so wird stattdessen eine Fehlermeldung
+  ausgegeben und das Skript beendet. In customview.html sind nur 
+  HTML-Elemente erlaubt, die sich innerhalb des Body-Tags befinden dürfen.
+  Beispiel:
+<p>
+	Hier habe ich ein paar Bilder einer Tour auf den Gro&szlig;venediger mit dem DAV abgelegt. 
+	Aufgenommen im Juli 2007.
+</p>
+- Wenn im aktuellen Verzeichnis eine Datei customview.html gefunden wird,
+  so wird sie hier ausgegeben.
+- Nun wird der Verzeichnisinhalt gelesen. Falls sich im Verzeichnis eine Datei
+  .files.cfg befindet, so wird diese geladen. Damit haben Sie die Möglichkeit
+  die anzuzeigenden Bilder und Verzeichnisse zu filtern und auch deren 
+  Reihenfolge festzulegen. Im Archiv finden Sie auch ein Windowsprogramm, mit
+  dem diese Datei einfach erstellt werden kann.
+- Nun wird eine sortierte Liste aller Unterverzeichnisse ausgegeben, die 
+  nicht "large", "preview" oder "thumb" heissen. Wenn in einem 
+  Unterverzeichnis eine Datei "index.jpg" gefunden wird, so wird diese 
+  ebenfalls angezeigt. Wenn in einem Unterverzeichnis eine Datei 
+  "description.html" gefunden wird, so wird diese auch angezeigt. In 
+  description.html sind nur HTML-Elemente erlaubt, die sich innerhalb des
+  Body-Tags befinden dürfen.
+  Beispiel:
+<p>
+	Hier habe ich ein paar Bilder einer Tour auf den Gro&szlig;venediger
+	mit dem DAV abgelegt. 
+</p>
+- Nun werden alle Bilder, falls welche vorhanden sind, ausser index.jpg 
+  angezeigt. Wenn die Variable thumbWidth ungleich Null ist, so werden
+  automatisch thumbnails erzeugt. Diese können auch in im Verzeichnis
+  "thumbs" gespeichert werden.
+- Nun werden alle Bilder, falls welche vorhanden sind aus dem 
+  Unterverzeichnis "preview" angezeigt. Falls es im Unterverzeichnis 
+  "large" eine Datei gleichen Namens gibt, wird ein Link zur Anzeige der
+  Datei aus dem Verzeichnis "large" erzeugt.
+- Falls im Gallerieverzeichnis eine oder zwei der Dateien left.html und
+  right.html gefunden wird, so werden diese Dateien links und rechts der
+  Bilder eingebunden. Hierzu wird eine Tabelle mit einer Zeile und zwei oder
+  drei Spalten erzeugt.
+- Zum Schluß wird falls vorhanden eine Datei "footer.html" aus dem 
+  aktuellen Verzeichnis eingebunden. Falls diese fehlt, wird sie im
+  Hauptverzeichnis Ihrer Galerie gesucht. Falls auch dieses fehlt, wird 
+  eine Standardfußzeile erzeugt.
+  Beispiel:
+<p>
+	<a href="../">Zur Startseite</a><br>
+	<font size=-1>Fotos &copy; 2010 by <a href="mailto:martin@gaeckler.de">Martin G&auml;ckler</a>,
+	ImageScript &copy; 2010 by <a href="http://www.cresd.de/" target="_blank">CRESD GmbH</a></font>
+</p>
+
+Styles
+------
+
+Alle Bilder werden entweder in einer HTML-Tabelle mit fester Spaltenzahl
+angezeigt oder mit einem "FLOAT"-Layout. Dabei werden verschiedene 
+Klassennamen verwendet:
+galleryPreview: Für die Vorschau der Untergallerien.
+imageTable:     Für die Anzeige der Galleriebilder. Wenn Sie automatisch
+                Vorschaubilder generieren lassen, wird auch diese Klasse
+                verwendet.
+imagePreview:   Für die Anzeige der Vorschaubilder, die Sie auf dem 
+                Server hochgeladen haben.
+
+Das Tabellenlayout sieht so aus:
+<table class="className">
+	<tr class="className">
+		<td class="className">
+			<img class="className" ... >
+			...
+		</td>
+	</tr>
+</table>
+
+Das Floatlayout sieht so aus:
+<div class="className">
+	<span class="className">
+		<img class="className" ... >
+		...
+	</span>
+</div>
+
+Bei Bildern im Querformat wird zusätzlich die Klasse "quer" angegeben, für
+Hochformatbilder ist das dann "hoch" und bei quadratischen Bildern 
+"quadrat". Dies wird dann aber natürlich nur bei td, span und img 
+angewendet.
+
+Bekannte Probleme
+-----------------
+
+- Umlaute in EXIF-Informationen aber auch Verzeichnissen werden nicht immer 
+  korrekt angezeigt.
+==========================================================================

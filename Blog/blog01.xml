@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<?xml-stylesheet href="blog.xsl" type="text/xsl" ?>
+<blog>
+	<datum>11.05.2026</datum>
+	<headline>Neue Blogsoftware</headline>
+	<teaser>
+		Heute habe ich einen neuen Blog eingerichtet. 
+	</teaser>
+	<para>
+		Die Software besteht aus einer
+		<ul>
+			<li>PHP-Datei, die alle XML-Dateien in einem Verzeichniss auflistet.</li>
+			<li>XSL-Datei, die aus einer XML-Nachrichtendatei eine HTML-Datei erzeugt.</li>
+			<li>CSS-Datei, die Formatierungen festlegen kann.</li>
+		</ul>
+	</para>
+	<para>
+		Ich muß nur eine Nachricht im xml-format erstellen:
+		<pre>
+&lt;?xml version="1.0" encoding="iso-8859-1" ?&gt;
+&lt;?xml-stylesheet href="blog.xsl" type="text/xsl" ?&gt;
+&lt;blog&gt;
+	&lt;datum&gt;11.05.2026&lt;/datum&gt;
+	&lt;headline&gt;Neue Blogsoftware&lt;/headline&gt;
+	&lt;teaser&gt;
+		Heute habe ich einen neuen Blog eingerichtet. 
+	&lt;/teaser&gt;
+	&lt;para&gt;
+		Die Software besteht aus einer
+		&lt;ul&gt;
+			&lt;li&gt;PHP-Datei, die alle XML-Dateien in einem Verzeichniss auflistet.&lt;/li&gt;
+			&lt;li&gt;XSL-Datei, die aus einer XML-Nachrichtendatei eine HTML-Datei erzeugt.&lt;/li&gt;
+			&lt;li&gt;CSS-Datei, die Formatierungen festlegen kann.&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/para&gt;
+	&lt;para&gt;
+		Ich muß nur eine Nachricht im xml-format erstellen.
+		&lt;pre&gt;
+			&lt;?xml version="1.0" encoding="iso-8859-1" ?&gt;
+			...
+		&lt;/pre&gt;
+		Den Rest sollte mein Webserver und euer Browser machen. 
+	&lt;/para&gt;
+&lt;/blog&gt;
+		</pre>
+		Den Rest sollte mein Webserver und euer Browser machen. 
+	</para>
+</blog>

@@ -1,0 +1,197 @@
+body
+{
+	padding: 0;
+	margin: 0;
+}
+body, div.GalleryTitle
+{
+	margin-top: 0;
+	background-color: #DDDDDD;
+}
+
+body.GalleryTree
+{
+	margin: 8px;
+}
+
+div.GalleryTitle
+{
+	position: sticky;
+	top:0;
+	width: 100%;
+	border-bottom: 1px solid #000000;
+	padding: 4px;
+	margin: 4px;
+	margin-top: 4px;
+}
+
+div.GalleryTitle>p
+{
+	padding: 0;
+	margin: 0;
+}
+
+div.GalleryTitle>h1
+{
+	padding: 0;
+	margin: 0;
+	text-decoration: underline;
+	text-align: center;
+}
+div.GalleryContent
+{
+	padding: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+div.GalleryFooter
+{
+	padding: 8px;
+	border-bottom: 1px solid #000000;
+}
+
+table.colLayout
+{
+	width: 100%;
+}
+td.leftCol, td.rightCol
+{
+	width: 10%;
+}
+td.leftCol, td.galleryCol, td.rightCol
+{
+	text-align: center;
+	vertical-align: top;
+}
+td.leftCol
+{
+	text-align: left;
+}
+td.galleryCol
+{
+	text-align: center;
+}
+td.rightCol
+{
+	text-align: right;
+}
+
+td.inlineImage
+{
+	width:100%;
+}
+
+table.galleryPreview, table.imageTable, table.imagePreview
+{
+	width:100%;
+	border-collapse: collapse;
+	border-spacing:0px;
+	margin: 2px;
+}
+div.galleryPreview, div.imageTable, div.imagePreview
+{
+	text-align: center;
+	padding-left: 0px;
+}
+td.galleryPreview, td.imageTable, td.imagePreview,
+span.galleryPreview, span.imageTable, span.imagePreview
+{
+	border: 1px solid #000000;
+	padding: 4px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0px;
+}
+td.galleryPreview, td.imageTable, td.imagePreview
+{
+	width:50%;
+}
+span.galleryPreview, span.imageTable, span.imagePreview
+{
+	float: left;
+	width: 400px;
+	height: 400px;
+}
+td.galleryPreview, span.galleryPreview
+{
+	background-color: #AAAAAA;
+}
+td.imageTable, span.imageTable
+{
+	background-color: #BBBBBB;
+}
+td.imagePreview, span.imagePreview
+{
+	background-color: #CCCCCC;
+}
+span.UserComment, span.ImageDescription, span.ImageArtist, span.cameraSettings, span.ImageData
+{
+	display: block;
+	font-size:10pt;
+	margin: 0;
+	padding: 0;
+}
+span.UserCommentLabel, span.ImageDescriptionLabel, span.ImageArtistLabel, span.cameraSettingsLabel, span.ImageDateLabel, span.ImageSizeLabel
+{
+	font-weight: bold;
+}
+span.imageFileName
+{
+	display: block;
+	font-size:8pt;
+	margin: 0;
+	padding: 0;
+}
+.picFrame
+{
+	background-color:#000000; 
+	border: 2px solid #00FF00; 
+	padding:0px;
+}
+
+div.imageNavigator
+{
+	text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 16px;
+	background-color: #000000;
+	visibility: hidden;
+	opacity:0.7; 
+	filter:alpha(opacity=70);
+	border: 2px solid #00FF00; 
+}
+
+a
+{
+	color: #000000;
+	font-weight: bold;
+}
+a:hover
+{
+	color: #FF0000;
+}
+
+a.prevImage, a.closeImage, a.nextImage, a.imageZoom, a.imageFullSize, span.imagePos, span.imageSizeInfo
+{
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+span.imageNav, span.imageShow, span.imageZoom
+{
+	vertical-align: top;
+	display: inline-block;
+}
+
+a.imageZoom
+{
+	border: 1px solid #FFFFFF;
+}
+span.imageZoom
+{
+	margin-left: 100px;
+	margin-right: 100px;
+}
