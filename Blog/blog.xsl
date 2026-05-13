@@ -18,6 +18,9 @@
 			<body>
 				<xsl:apply-templates />
 				<HR />
+				<p>
+					<a href="index.php">Inhaltsvereichnis</a>.
+				</p>
 				<P class="copyr">&#169; 1999-2026 by Martin Gäckler <a href="https://www.gaeckler.at/">Österreich</a>&#160;<a href="http://www.gäckler.de/">Deutschland</a></P>
 			</body>
 		</html>
