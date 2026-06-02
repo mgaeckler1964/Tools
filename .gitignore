@@ -41,4 +41,7 @@ bin/
 *.bak
 *.~*
 
+# do not copy more than one example
+blog*.xml
+
 toOther.bat
