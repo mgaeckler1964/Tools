@@ -34,9 +34,9 @@
 				}
 				if( isset($datum) )
 					echo "<b>{$datum}</b> ";
-				echo "<a href={$filename}>" . htmlspecialchars($titel, ENT_QUOTES, 'ISO-8859-1') . "</a><br>\n";
+				echo "<a href={$filename}>" . htmlentities($titel, ENT_QUOTES, 'UTF-8') . "</a><br>\n";
 				if( isset($teaser) )
-					echo "{$teaser}<br>\n";
+					echo htmlentities($teaser, ENT_NOQUOTES, 'UTF-8') . "<br>\n";
 			}
 		?>
 		<hr>
