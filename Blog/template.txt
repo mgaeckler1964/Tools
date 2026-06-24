@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<?xml-stylesheet href="blog.xsl" type="text/xsl" ?>
+<blog>
+	<datum>dd.mm.2026</datum>
+	<headline>Der Titel</headline>
+	<teaser>
+		Der Teaser
+	</teaser>
+	<para>
+		Die tolle Info
+	</para>
+	<para>
+		Am Ende zeigt sich die Qualität einer Software nicht darin, wie viele Features 
+		sie hat, sondern wie unauffällig sie ihren Dienst verrichtet. Gute Usability 
+		ist im Grunde unsichtbar: Sie fällt dem Benutzer erst dann auf, wenn sie fehlt - 
+		sei es durch ein nerviges Flackern, unnötige Klick-Kaskaden oder kryptische 
+		Fehlermeldungen.
+	</para>
+</blog>
