@@ -1,14 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
-
-<html>
+<html lang="de">
 	<head>
 		<title>Martins Blog</title>
-		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="content-type" content="text/html; charset=Windows-1252">
 		<link rel="stylesheet" type="text/css" href="../gaeckler.css">
 		<link rel="stylesheet" type="text/css" href="blog.css">
 		<link rel="shortcut icon" href="../favicon.ico" type="image/ico">
 	</head>
-	<body>
+	<body class="blog">
 		<p>
 			<a href="/">Start</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="../badminton.htm">Badminton</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,7 +20,7 @@
 			<a href="../wordbook.htm">W&ouml;rterbuch</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</p>
 		<hr>
-		<h1>Blog</h1>
+		<h1 class="blog">Blog</h1>
 		<p>
 		<?php
 			foreach (array_reverse(glob("*.xml")) as $filename) {

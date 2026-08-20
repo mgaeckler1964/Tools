@@ -15,7 +15,7 @@
 				<link rel="stylesheet" type="text/css" href="blog.css" />
 				<link rel="shortcut icon" href="../favicon.ico" type="image/ico" />
 			</head>
-			<body>
+			<body class="blog">
 				<xsl:apply-templates />
 				<HR />
 				<p>
@@ -31,7 +31,7 @@
 	</xsl:template>
 
 	<xsl:template match="headline">
-		<h1><xsl:value-of select="."/></h1>
+		<h1 class="blog"><xsl:value-of select="."/></h1>
 	</xsl:template>
 
 	<xsl:template match="teaser">
