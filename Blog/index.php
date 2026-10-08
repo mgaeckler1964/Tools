@@ -39,7 +39,7 @@
 			}
 		?>
 		<hr>
-		<P class="copyr">&copy; 1999-2026 by Martin G&auml;ckler <a href="https://www.gaeckler.at/">&Ouml;sterreich</a> <a href="http://www.gäckler.de/">Deutschland</a></P>
+		<P class="copyr">&copy; 1999-2026 by Martin G&auml;ckler <a href="https://www.gaeckler.at/">&Ouml;sterreich</a> <a href="http://www.xn--gckler-bua.de/">Deutschland</a></P>
 	</body>
 </html>
 
